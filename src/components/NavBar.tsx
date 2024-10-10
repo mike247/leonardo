@@ -115,7 +115,7 @@ export default function NavBar() {
             w="100vw"
             display={{ md: "none" }}
           >
-            <Stack as="nav" spacing={4} ml="4">
+            <Stack as="nav" spacing={4} ml="4" mr="4">
               {Links.map(({ title, href }) => (
                 <NavLink key={title} href={href}>
                   {title}
