@@ -67,7 +67,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+      <Box bg="gray.100" px={4}>
         <Flex h={16} alignItems="center" justifyContent="space-between">
           <IconButton
             size="md"
@@ -106,8 +106,16 @@ export default function NavBar() {
         </Flex>
 
         {hamburgerIsOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
-            <Stack as="nav" spacing={4}>
+          <Box
+            pb={4}
+            position="absolute"
+            left={0}
+            bg="gray.100"
+            zIndex="2"
+            w="100vw"
+            display={{ md: "none" }}
+          >
+            <Stack as="nav" spacing={4} ml="4">
               {Links.map(({ title, href }) => (
                 <NavLink key={title} href={href}>
                   {title}
