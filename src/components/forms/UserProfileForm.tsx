@@ -53,7 +53,7 @@ export default function UserProfileForm({ onClose }: FormProps) {
                   isRequired
                 >
                   <FormLabel>Username</FormLabel>
-                  <Input {...field} />
+                  <Input {...field} maxLength={255} />
                   <FormErrorMessage>{form.errors.username}</FormErrorMessage>
                 </FormControl>
               )}
@@ -71,7 +71,7 @@ export default function UserProfileForm({ onClose }: FormProps) {
                   isRequired
                 >
                   <FormLabel>Job Title</FormLabel>
-                  <Input {...field} />
+                  <Input {...field} maxLength={255} />
                   <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                 </FormControl>
               )}
