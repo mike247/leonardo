@@ -2,7 +2,7 @@ This is a NextJS app made for the Leonardo coding assessment.
 
 ## About
 
-THis project requires the user to set a username and job title before retrieving a paginated list of search results from a public graphql API
+This project requires the user to set a username and job title before retrieving a paginated list of search results from a public graphql API
 
 To do this the following libraries have been used
 
