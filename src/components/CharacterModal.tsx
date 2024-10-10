@@ -21,6 +21,7 @@ type Props = {
   onClose: () => void;
 };
 
+// The expanded modal with some dummy text for the detailed character view
 export default function CharacterModal({ isOpen, onClose, character }: Props) {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -29,7 +30,7 @@ export default function CharacterModal({ isOpen, onClose, character }: Props) {
         <ModalHeader>Character info</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-          <Flex flexDirection={"column"}>
+          <Flex flexDirection="column">
             <Flex>
               <Avatar src={character?.image} />
               <Box ml="3">

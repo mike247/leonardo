@@ -42,6 +42,7 @@ export const useAuthContext = () => {
   return context;
 };
 
+// Custom probider to handle the shared context
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [hasRequiredFields, setHasRequiredFields] = useState<boolean>();
   const [localStorageValues, setLocalStorageValues] = useState<string | null>(

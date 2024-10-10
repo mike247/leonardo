@@ -17,6 +17,8 @@ type Props = {
   onClose: () => void;
 };
 
+// The modal to hold the 'Auth' form
+// Despite not being best practice the easiest way to block the modal is to disable the close actions
 export default function AuthModal({ isOpen, onClose }: Props) {
   const { hasRequiredFields } = useAuthContext();
   return (

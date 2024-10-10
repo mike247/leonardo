@@ -38,6 +38,7 @@ const NavLink = ({ children, href }: Props) => {
   );
 };
 
+// Nav bar with dummy links
 export default function NavBar() {
   const { hasRequiredFields } = useAuthContext();
   const {
@@ -51,13 +52,14 @@ export default function NavBar() {
     onClose: modalOnClose,
   } = useDisclosure();
 
-  // Future menu items
+  // Example menu items
   const Links = [
     { title: "Nav example", href: "1" },
     { title: "Second nav example", href: "2" },
   ];
 
   useEffect(() => {
+    // Check if the required fields has been checked and is missing
     if (typeof hasRequiredFields !== "undefined" && !hasRequiredFields) {
       modalOnOpen();
     }
@@ -66,20 +68,16 @@ export default function NavBar() {
   return (
     <>
       <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
-        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+        <Flex h={16} alignItems="center" justifyContent="space-between">
           <IconButton
-            size={"md"}
+            size="md"
             icon={hamburgerIsOpen ? <CloseIcon /> : <HamburgerIcon />}
-            aria-label={"Open Menu"}
+            aria-label="Open Menu"
             display={{ md: "none" }}
             onClick={hamburgerIsOpen ? hamburgerOnClose : hamburgerOnOpen}
           />
-          <HStack spacing={8} alignItems={"center"}>
-            <HStack
-              as={"nav"}
-              spacing={4}
-              display={{ base: "none", md: "flex" }}
-            >
+          <HStack spacing={8} alignItems="center">
+            <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }}>
               {Links.map(({ title, href }) => (
                 <NavLink key={title} href={href}>
                   {title}
@@ -87,11 +85,11 @@ export default function NavBar() {
               ))}
             </HStack>
           </HStack>
-          <Flex alignItems={"center"}>
+          <Flex alignItems="center">
             <Button
-              variant={"solid"}
-              colorScheme={"teal"}
-              size={"sm"}
+              variant="solid"
+              colorScheme="teal"
+              size="sm"
               mr={4}
               leftIcon={<EditIcon />}
               onClick={modalOnOpen}
@@ -99,7 +97,7 @@ export default function NavBar() {
               Profile
             </Button>
             <Avatar
-              size={"sm"}
+              size="sm"
               src={
                 "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
               }
@@ -109,7 +107,7 @@ export default function NavBar() {
 
         {hamburgerIsOpen ? (
           <Box pb={4} display={{ md: "none" }}>
-            <Stack as={"nav"} spacing={4}>
+            <Stack as="nav" spacing={4}>
               {Links.map(({ title, href }) => (
                 <NavLink key={title} href={href}>
                   {title}

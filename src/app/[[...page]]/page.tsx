@@ -6,9 +6,7 @@ import {
   Spinner,
   Flex,
   Box,
-  Text,
   Button,
-  Avatar,
   useDisclosure,
 } from "@chakra-ui/react";
 import { GET_CHARACTERS } from "@/lib/queries";
@@ -16,6 +14,7 @@ import { useAuthContext } from "@/Providers/auth";
 import CharacterModal from "@/components/CharacterModal";
 import CharacterWidget, { Character } from "@/components/Character";
 
+// The home page, handles calling of the api and the pagination
 export default function Home({ params }: { params: { page: [string] } }) {
   const [selectedResult, setSelectedResult] = useState<Character | null>(null);
   const {
@@ -63,17 +62,13 @@ export default function Home({ params }: { params: { page: [string] } }) {
   return (
     <div>
       {loading && (
-        <Center mt={"100"}>
+        <Center mt="100">
           <Spinner size="xl" />
         </Center>
       )}
       {data && (
         <Box>
-          <Flex
-            alignItems={"center"}
-            flexWrap={"wrap"}
-            justifyContent={"center"}
-          >
+          <Flex alignItems="center" flexWrap="wrap" justifyContent="center">
             {results}
           </Flex>
           <Center>

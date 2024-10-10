@@ -13,6 +13,7 @@ type CharacterWidgetProps = {
   onClick: () => void;
 };
 
+// The widget to display the Character from the API result
 export default function CharacterWidget({
   character,
   onClick,

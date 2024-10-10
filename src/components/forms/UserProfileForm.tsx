@@ -11,7 +11,7 @@ import {
 import { Formik, Form, Field, FieldInputProps, FormikProps } from "formik";
 import { useAuthContext } from "@/Providers/auth";
 
-type Props = {
+type FormProps = {
   onClose: () => void;
 };
 
@@ -20,7 +20,8 @@ type FormValues = {
   title: string;
 };
 
-export default function UserProfileForm({ onClose }: Props) {
+// Userprofile form, using Formik for form validation and error handling
+export default function UserProfileForm({ onClose }: FormProps) {
   const { localStorageValues, setLocalStorage } = useAuthContext();
   const defaultValues = { username: "", title: "" };
   const { username, title } = localStorageValues
@@ -31,11 +32,9 @@ export default function UserProfileForm({ onClose }: Props) {
     <Formik
       initialValues={{ username, title }}
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          setLocalStorage(JSON.stringify(values));
-          setSubmitting(false);
-          onClose();
-        }, 400);
+        setLocalStorage(JSON.stringify(values));
+        setSubmitting(false);
+        onClose();
       }}
     >
       {({ isSubmitting }) => (
@@ -54,7 +53,7 @@ export default function UserProfileForm({ onClose }: Props) {
                   isRequired
                 >
                   <FormLabel>Username</FormLabel>
-                  <Input {...field} placeholder="" />
+                  <Input {...field} />
                   <FormErrorMessage>{form.errors.username}</FormErrorMessage>
                 </FormControl>
               )}
@@ -72,7 +71,7 @@ export default function UserProfileForm({ onClose }: Props) {
                   isRequired
                 >
                   <FormLabel>Job Title</FormLabel>
-                  <Input {...field} placeholder="" />
+                  <Input {...field} />
                   <FormErrorMessage>{form.errors.title}</FormErrorMessage>
                 </FormControl>
               )}
@@ -81,7 +80,6 @@ export default function UserProfileForm({ onClose }: Props) {
               colorScheme="blue"
               mb={3}
               mt={5}
-              // onClick={onClose}
               type="submit"
               disabled={isSubmitting}
             >
