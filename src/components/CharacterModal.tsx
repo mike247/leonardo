@@ -13,14 +13,7 @@ import {
   Badge,
   Box,
 } from "@chakra-ui/react";
-
-export type Character = {
-  gender: string;
-  image: string;
-  name: string;
-  species: string;
-  id: number;
-};
+import { Character } from "./Character";
 
 type Props = {
   isOpen: boolean;

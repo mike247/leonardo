@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { GET_CHARACTERS } from "@/lib/queries";
 import { useAuthContext } from "@/Providers/auth";
-import CharacterModal, { Character } from "@/components/CharacterModal";
+import CharacterModal from "@/components/CharacterModal";
+import CharacterWidget, { Character } from "@/components/Character";
 
 export default function Home({ params }: { params: { page: [string] } }) {
   const [selectedResult, setSelectedResult] = useState<Character | null>(null);
@@ -48,25 +49,14 @@ export default function Home({ params }: { params: { page: [string] } }) {
     data &&
     data.characters.results.map((result) => {
       return (
-        <Box
-          m="3"
-          border="1px"
-          borderRadius="5"
-          borderColor="#ddd"
-          minW="300"
+        <CharacterWidget
+          character={result}
           key={result.id}
           onClick={() => {
             setSelectedResult(result);
             characterModalOnOpen();
           }}
-        >
-          <Flex m="2">
-            <Avatar src={result.image} />
-            <Flex ml="3" alignItems={"center"}>
-              <Text fontWeight="bold">{result.name}</Text>
-            </Flex>
-          </Flex>
-        </Box>
+        />
       );
     });
 
