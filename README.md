@@ -15,16 +15,11 @@ As well as the standard react, emotion and graphql libraries required to use the
 
 ## Getting Started
 
-First, run the development server:
+First, instlal the dependences, then run the development server
 
 ```bash
+npm i
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
