@@ -29,6 +29,7 @@ export default function CharacterWidget({
       position="relative"
       overflow="hidden"
       role="group"
+      cursor="pointer"
     >
       <Image src={character.image} />
       <Box
